@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página principal red social</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" id="inicio">
+        <img src="Imagenes/menu.svg" alt class="menu">
+        <nav class="menu-navegacion">
+            <a href="#inicio">Inicio</a>
+            <a href="#servicio">Servicio</a>
+            <a href="#Publicaciones">Publicaciones</a>
+            <a href="#Expertos">Expertos</a>
+            <a href="#Contacto">Contacto</a>
+        </nav>
+        <div class="contenedor head">
+            <h1 class="titulo">Bienvenidos a nuestra red social BIT</h1>
+            <p class="copy">Instructor: Gabriel Niño</p>
+            <p class="copy">Proyecto presentado por: Miguel Angel Morán Rodríguez</p>
+            <p class="copy">Programa de estudio: Full Stack Desarrollo Web</p>
+        </div>
+    </header>
+    <main>
+        <section class="services contenedor" id="servicio">
+           <h2 class="subtitulo">Nuestro servicio</h2>
+           <div class="contenedor-servicio">
+                <img src="Imagenes/Websites.svg" alt"">
+                <div class="checklist-servicio">
+                    <div class="service">
+                        <h3 class="n-service"><span class="number">1</span>Suscribir</h3>
+                        <p>Ingresa a un círculo de compañeros apasionados por la tecnología, compartir experiencias y aportar a proyectos de desarrollo</p>
+                    </div>
+                    <div class="service">
+                        <h3 class="n-service"><span class="number">2</span>Publicar experiencias</h3>
+                        <p>Publica y comenta tus experiencias, en beneficio de la comunidad y para conocer diferentes opiniones</p>
+                    </div>
+                    <div class="service">
+                        <h3 class="n-service"><span class="number">3</span>Conocer temas de interés y actualidad</h3>
+                        <p>Compartir temas de interés general y cultural, que enriquecen nuestros conocimientos y experiencias</p>
+                    </div>
+                </div>
+           </div>
+        </section>
+        <section class="gallery" id="Publicaciones">
+            <div class="contenedor">
+                <h2 class="subtitulo">Publicaciones</h2>
+                <div class="contenedor-galeria">
+                    <img src="imagenes/uno.jpg" alt="" class="img-galeria">
+                    <img src="imagenes/dos.jpg" alt="" class="img-galeria">
+                    <img src="imagenes/tres.jpg" alt="" class="img-galeria">
+                    <img src="imagenes/cuatro.jpg" alt="" class="img-galeria">
+                    <img src="imagenes/cinco.jpg" alt="" class="img-galeria">
+                    <img src="imagenes/seis.jpg" alt="" class="img-galeria">
+                 </div>
+                 <style>
+                *{
+                    box-sizing: border-box;
+                    margin:     0;
+                    padding:    0;
+                }
+
+                body {
+                    background-color: #fff;   
+                    font-family:      Arial, sans-serif;
+                    padding:          30px;
+                }
+
+                .card {
+                    background:    hwb(0 67% 27%);
+                    border-radius: 12px;      
+                    padding:       16px;
+                    max-width:     480px;     
+                    box-shadow:    0 2px 8px rgba(0,0,0,0.1); 
+                }
+
+                 .post-header {
+                display:       flex;       
+                align-items:   center;
+                gap:           10px;      
+                margin-bottom: 12px;
+                }
+
+                .avatar {
+                width:           42px;
+                height:          42px;
+                border-radius:   50%;   
+                background-color: #667eea; 
+                color:           white;
+                font-weight:     bold;
+                font-size:       14px;
+                display:         flex;
+                align-items:     center;
+                justify-content: center; 
+                flex-shrink:     0;       
+                }
+
+                .nombre {
+                font-weight: bold;
+                font-size:   15px;
+                }
+
+                .tiempo {
+                font-size: 12px;
+                color:     #888;    
+
+                .post-texto {
+                margin-bottom: 12px;
+                line-height:   1.5;
+                font-size:     15px;
+                 }
+                }
+
+                .separador {
+                border:     none;
+                border-top: 1px solid #eee;
+                margin:     12px 0;
+                }
+
+ 
+                .comentar-fila {
+                display:       flex;
+                gap:           8px;
+                margin-bottom: 12px;
+                }
+
+                #campo-comentario {
+                flex:          1;          
+                padding:       8px 14px;
+                border:        1px solid #ddd;
+                border-radius: 20px;
+                font-size:     14px;
+                outline:       none;       
+                }
+
+                #btn-comentar {
+                background:    #1877f2;   
+                color:         white;
+                border:        none;
+                border-radius: 20px;
+                padding:       8px 18px;
+                font-size:     14px;
+                cursor:        pointer;   
+                }
+
+                #btn-comentar:hover {
+                background: #1060c9;
+                }
+
+                .comentario {
+                display:       flex;
+                align-items:  flex-start;
+                gap:           8px;
+                margin-bottom: 8px;
+                }
+
+                .comentario-avatar {
+                width:           30px;
+                height:          30px;
+                border-radius:   50%;
+                background-color: #ccc;
+                display:         flex;
+                align-items:     center;
+                justify-content: center;
+                font-size:       11px;
+                font-weight:     bold;
+                color:           white;
+                flex-shrink:     0;
+                }
+
+                .comentario-burbuja {
+                background:    #f0f2f5;
+                border-radius: 12px;
+                padding:       6px 12px;
+                font-size:     14px;
+                line-height:   1.4;
+                }
+
+                .acciones { margin-bottom: 10px; }
+
+                .btn-accion {
+                background:    none;
+                border:        1px solid #ddd;
+                border-radius: 8px;
+                padding:       6px 14px;
+                font-size:     14px;
+                cursor:        pointer;
+                color:         #555;
+                transition:    all 0.2s;
+                }
+
+                .btn-accion.activo {
+                background:   #e7f3ff;
+                border-color: #1877f2;
+                color:        #1877f2;
+                font-weight:  bold;
+                }
+  </style>
+    </head>
+<body>
+    <div class="card">
+      <div class="post-header">
+          <div class="avatar">TU</div>
+        <div>
+            <p class="nombre">Miguel Morán</p>
+            <p class="tiempo">hace 2 horas</p>
+        </div>
+    </div>
+
+  <p class="post-texto">
+      <hr class="separador">
+  <div class="comentar-fila">
+
+    <input
+      type="text"
+      id="campo-comentario"
+      placeholder="Escribe un comentario..."
+    >
+
+    <button id="btn-comentar">
+      Comentar
+    </button>
+
+  </div>
+  <div id="lista-comentarios">
+  </div>
+    <div class="acciones">
+    <button id="btn-like" class="btn-accion">
+      👍 Me gusta <span id="contador-likes">0</span>
+    </button>
+  </div>  
+    ¡Aprendiendo a programar con JavaScript! 🚀
+  </p>
+
+</div>
+    <script>
+
+        const boton = document.getElementById('btn-comentar');
+        const campo = document.getElementById('campo-comentario');
+        const listaComentarios = document.getElementById('lista-comentarios');
+
+        const comentarios = [];
+
+        function agregarComentario() {
+
+        const texto = campo.value.trim();
+
+            if (texto === '') return;
+
+                comentarios.push(texto);
+
+                const divComentario = document.createElement('div');
+                divComentario.className = 'comentario';
+
+                const avatar = document.createElement('div');
+                avatar.className         = 'comentario-avatar';
+                avatar.textContent       = 'YO';      
+                avatar.style.backgroundColor = '#667eea';
+
+                const burbuja = document.createElement('div');
+                burbuja.className   = 'comentario-burbuja';
+                burbuja.textContent = texto;
+
+                divComentario.appendChild(avatar);
+                divComentario.appendChild(burbuja);
+
+                listaComentarios.appendChild(divComentario);
+
+                campo.value = '';
+                campo.focus();
+        }
+
+
+        boton.addEventListener('click', agregarComentario);
+
+        campo.addEventListener('keydown', function(evento) {
+        if (evento.key === 'Enter') {
+            agregarComentario();
+        }
+        });
+
+        let likes   = 0;
+        let dioLike = false; 
+
+        const btnLike  = document.getElementById('btn-like');
+        const contador = document.getElementById('contador-likes');
+
+        btnLike.addEventListener('click', function() {
+
+            if (dioLike) {
+                likes--;
+                dioLike = false;
+                btnLike.classList.remove('activo'); 
+                likes++;
+                dioLike = true;
+                btnLike.classList.add('activo'); 
+            }
+
+        contador.textContent = likes;
+        });
+
+
+    </script>
+        </div>
+        </section>
+        <section class="imagen-light">
+            <img src="Imagenes/close.svg" alt="" class="close">
+            <img src="" alt="" class="agregar-imagen" width="800" height="800">
+        </section>
+        <section class="contenedor" id="Expertos">
+            <h2 class="subtitulo">Expertos en:</h2>
+            <section class="experts">
+                <div class="cont-expert">
+                    <img src="Imagenes/Social Media.svg" alt="">
+                    <h3 class="n-expert">Analytics</h3>
+                    <img src="Imagenes/Websites.svg" alt="">
+                    <h3 class="n-expert">SEO</h3>
+                    <img src="Imagenes/Business Cards.svg" alt="">
+                    <h3 class="n-expert">Security</h3>
+                </div>
+            </section>
+        </section>
+    </main>
+    <footer id="Contacto">
+        <div class="contenedor footer-content">
+            <div class="contact-us">
+                <h2 class="brand">Miguel Morán Design</h2>
+                <p>Somos expertos en la creación de tus sueños</p>
+            </div>
+            <div class="social-media">
+                <a href="./" class="social-media-icon">
+                    <i class="bx bxl-facebook"></i>
+                </a>
+                <a href="./" class="social-media-icon">
+                    <i class="bx bxl-twitter"></i>
+                </a>
+                <a href="./" class="social-media-icon">
+                    <i class="bx bxl-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="line"></div>
+    </footer>
+        <script src="menu.js"></script>
+        <script src="lightbox.js"></script>
+</body>
+</html>

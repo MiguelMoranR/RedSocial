@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi red social</title>
+    <link rel="stylesheet" href="styles.css">
+<style>
+*{
+    box-sizing: border-box;
+    margin:     0;
+    padding:    0;
+  }
+
+  body {
+    background-color: #f0f2f5;   
+    font-family:      Arial, sans-serif;
+    padding:          30px;
+  }
+
+  .card {
+    background:    white;
+    border-radius: 12px;      
+    padding:       16px;
+    max-width:     480px;     
+    box-shadow:    0 2px 8px rgba(0,0,0,0.1); 
+  }
+
+  /* Encabezado en fila horizontal */
+  .post-header {
+    display:       flex;       
+    align-items:   center;
+    gap:           10px;      
+    margin-bottom: 12px;
+  }
+
+  .avatar {
+    width:           42px;
+    height:          42px;
+    border-radius:   50%;   
+    background-color: #667eea; 
+    color:           white;
+    font-weight:     bold;
+    font-size:       14px;
+    display:         flex;
+    align-items:     center;
+    justify-content: center; 
+    flex-shrink:     0;       
+  }
+
+  .nombre {
+    font-weight: bold;
+    font-size:   15px;
+  }
+
+  .tiempo {
+    font-size: 12px;
+    color:     #888;    
+
+  .post-texto {
+    margin-bottom: 12px;
+    line-height:   1.5;
+    font-size:     15px;
+  }
+  }
+
+    .separador {
+    border:     none;
+    border-top: 1px solid #eee;
+    margin:     12px 0;
+  }
+
+ 
+  .comentar-fila {
+    display:       flex;
+    gap:           8px;
+    margin-bottom: 12px;
+  }
+
+  #campo-comentario {
+    flex:          1;          
+    padding:       8px 14px;
+    border:        1px solid #ddd;
+    border-radius: 20px;
+    font-size:     14px;
+    outline:       none;       
+  }
+
+  #btn-comentar {
+    background:    #1877f2;   
+    color:         white;
+    border:        none;
+    border-radius: 20px;
+    padding:       8px 18px;
+    font-size:     14px;
+    cursor:        pointer;   
+  }
+
+   #btn-comentar:hover {
+    background: #1060c9;
+  }
+
+  .comentario {
+    display:       flex;
+    align-items:  flex-start;
+    gap:           8px;
+    margin-bottom: 8px;
+  }
+
+  .comentario-avatar {
+    width:           30px;
+    height:          30px;
+    border-radius:   50%;
+    background-color: #ccc;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+    font-size:       11px;
+    font-weight:     bold;
+    color:           white;
+    flex-shrink:     0;
+  }
+
+  .comentario-burbuja {
+    background:    #f0f2f5;
+    border-radius: 12px;
+    padding:       6px 12px;
+    font-size:     14px;
+    line-height:   1.4;
+  }
+
+    .acciones { margin-bottom: 10px; }
+
+  .btn-accion {
+    background:    none;
+    border:        1px solid #ddd;
+    border-radius: 8px;
+    padding:       6px 14px;
+    font-size:     14px;
+    cursor:        pointer;
+    color:         #555;
+    transition:    all 0.2s;
+  }
+
+  /* Estado activo: fondo azul claro y texto azul */
+  .btn-accion.activo {
+    background:   #e7f3ff;
+    border-color: #1877f2;
+    color:        #1877f2;
+    font-weight:  bold;
+  }
+  </style>
+    </head>
+<body>
+    <div class="card">
+      <div class="post-header">
+          <div class="avatar">TU</div>
+        <div>
+            <p class="nombre">Miguel Morán</p>
+            <p class="tiempo">hace 2 horas</p>
+        </div>
+    </div>
+
+  <p class="post-texto">
+      <hr class="separador">
+  <div class="comentar-fila">
+
+    <input
+      type="text"
+      id="campo-comentario"
+      placeholder="Escribe un comentario..."
+    >
+
+    <button id="btn-comentar">
+      Comentar
+    </button>
+
+  </div>
+  <div id="lista-comentarios">
+  </div>
+    <div class="acciones">
+    <button id="btn-like" class="btn-accion">
+      👍 Me gusta <span id="contador-likes">0</span>
+    </button>
+  </div>  
+    ¡Aprendiendo a programar con JavaScript! 🚀
+  </p>
+
+</div>
+
+<script>
+
+  // ── PASO A: Buscar los elementos por su id ──────────────
+  const boton            = document.getElementById('btn-comentar');
+  const campo            = document.getElementById('campo-comentario');
+  const listaComentarios = document.getElementById('lista-comentarios');
+
+  // ── PASO B: Array en memoria donde guardamos los textos ─
+  const comentarios = [];
+
+  // ── PASO C: La función que hace todo el trabajo ─────────
+  function agregarComentario() {
+
+    // 1. Leer el texto del campo (.trim() elimina espacios extras)
+    const texto = campo.value.trim();
+
+    // 2. Si está vacío, salir sin hacer nada
+    if (texto === '') return;
+
+    // 3. Guardar el texto en el array
+    comentarios.push(texto);
+
+    // 4. Crear el div contenedor del comentario
+    const divComentario = document.createElement('div');
+    divComentario.className = 'comentario';
+
+    // 5. Crear el avatar pequeño
+    const avatar = document.createElement('div');
+    avatar.className         = 'comentario-avatar';
+    avatar.textContent       = 'YO';         // ← pon tus iniciales aquí
+    avatar.style.backgroundColor = '#667eea'; // ← mismo color que tu avatar
+
+    // 6. Crear la burbuja con el texto
+    const burbuja = document.createElement('div');
+    burbuja.className   = 'comentario-burbuja';
+    burbuja.textContent = texto;
+
+    // 7. Ensamblar: poner avatar y burbuja dentro del div
+    divComentario.appendChild(avatar);
+    divComentario.appendChild(burbuja);
+
+    // 8. Agregar el comentario completo a la lista en pantalla
+    listaComentarios.appendChild(divComentario);
+
+    // 9. Limpiar el campo y volver a poner el cursor ahí
+    campo.value = '';
+    campo.focus();
+  }
+
+  // ── PASO D: Conectar la función a los eventos ───────────
+
+  // Al hacer clic en el botón
+  boton.addEventListener('click', agregarComentario);
+
+  // Al presionar Enter en el campo
+  campo.addEventListener('keydown', function(evento) {
+    if (evento.key === 'Enter') {
+      agregarComentario();
+    }
+  });
+
+  let likes   = 0;
+  let dioLike = false;  // false = no le dio like todavía
+
+  const btnLike  = document.getElementById('btn-like');
+  const contador = document.getElementById('contador-likes');
+
+  btnLike.addEventListener('click', function() {
+
+    if (dioLike) {
+      // Ya había dado like → quitar like
+      likes--;
+      dioLike = false;
+      btnLike.classList.remove('activo');  // quita el estilo azul
+    } else {
+      // No había dado like → dar like
+      likes++;
+      dioLike = true;
+      btnLike.classList.add('activo');    // agrega el estilo azul
+    }
+
+    // Actualizar el número visible
+    contador.textContent = likes;
+  });
+
+
+</script>
+</body>
+</html>
